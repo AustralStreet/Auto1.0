@@ -1,0 +1,9 @@
+2018-08-29 00:13:04,865 TestRequest.py[line: 32] INFO: testvote1-1
+2018-08-29 00:13:04,873 TestRequest.py[line: 33] INFO: 通过
+2018-08-29 00:13:04,880 TestRequest.py[line: 34] INFO: 实际返回结果：{'status': '200', 'message': 'success'}
+2018-08-29 00:13:04,889 TestRequest.py[line: 32] INFO: testvote1-1
+2018-08-29 00:13:04,890 TestRequest.py[line: 33] INFO: 通过
+2018-08-29 00:13:04,890 TestRequest.py[line: 34] INFO: 实际返回结果：{'status': '10022', 'message': 'The problem is not the choice id'}
+2018-08-29 00:13:04,898 TestRequest.py[line: 70] INFO: testpolls1-1
+2018-08-29 00:13:04,898 TestRequest.py[line: 71] INFO: 通过
+2018-08-29 00:13:04,899 TestRequest.py[line: 72] INFO: 实际返回结果：{'status': '200', 'message': 'sucess', 'data': {'1': '生化危机', '2': '吃鸡', '3': '魔兽'}}
