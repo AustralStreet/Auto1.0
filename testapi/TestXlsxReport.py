@@ -6,12 +6,13 @@ import time
 import TestRequest
 from testcase.testvote import *
 from TestAllRunner import threads
+from initdata import init_data
 
 #把GetTestReport方法自己写出来
 from testdata.getpath import GetTestReport
 
 threads()
-
+init_data()
 
 
 

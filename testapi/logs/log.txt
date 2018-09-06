@@ -1,9 +1,15 @@
-2018-08-29 00:13:04,865 TestRequest.py[line: 32] INFO: testvote1-1
-2018-08-29 00:13:04,873 TestRequest.py[line: 33] INFO: Í¨¹ı
-2018-08-29 00:13:04,880 TestRequest.py[line: 34] INFO: Êµ¼Ê·µ»Ø½á¹û£º{'status': '200', 'message': 'success'}
-2018-08-29 00:13:04,889 TestRequest.py[line: 32] INFO: testvote1-1
-2018-08-29 00:13:04,890 TestRequest.py[line: 33] INFO: Í¨¹ı
-2018-08-29 00:13:04,890 TestRequest.py[line: 34] INFO: Êµ¼Ê·µ»Ø½á¹û£º{'status': '10022', 'message': 'The problem is not the choice id'}
-2018-08-29 00:13:04,898 TestRequest.py[line: 70] INFO: testpolls1-1
-2018-08-29 00:13:04,898 TestRequest.py[line: 71] INFO: Í¨¹ı
-2018-08-29 00:13:04,899 TestRequest.py[line: 72] INFO: Êµ¼Ê·µ»Ø½á¹û£º{'status': '200', 'message': 'sucess', 'data': {'1': 'Éú»¯Î£»ú', '2': '³Ô¼¦', '3': 'Ä§ÊŞ'}}
+2018-09-05 23:08:13,964 TestRequest.py[line: 32] INFO: testvote1-1
+2018-09-05 23:08:13,964 TestRequest.py[line: 33] INFO: é€šè¿‡
+2018-09-05 23:08:13,964 TestRequest.py[line: 34] INFO: å®é™…è¿”å›ç»“æœï¼š{'status': '200', 'message': 'success'}
+2018-09-05 23:08:13,997 TestRequest.py[line: 32] INFO: testvote1-1
+2018-09-05 23:08:13,997 TestRequest.py[line: 33] INFO: é€šè¿‡
+2018-09-05 23:08:13,997 TestRequest.py[line: 34] INFO: å®é™…è¿”å›ç»“æœï¼š{'status': '10022', 'message': 'The problem is not the choice id'}
+2018-09-05 23:08:14,023 TestRequest.py[line: 84] ERROR: testpolls1-1
+2018-09-05 23:08:14,023 TestRequest.py[line: 85] ERROR: å¤±è´¥
+2018-09-05 23:08:14,023 TestRequest.py[line: 86] ERROR: å®é™…è¿”å›ç»“æœï¼š{'status': '200', 'message': 'sucess', 'data': {'1': 'java', '2': 'python'}}
+2018-09-05 23:08:14,058 TestRequest.py[line: 32] INFO: testlogin1-1
+2018-09-05 23:08:14,058 TestRequest.py[line: 33] INFO: é€šè¿‡
+2018-09-05 23:08:14,058 TestRequest.py[line: 34] INFO: å®é™…è¿”å›ç»“æœï¼š{'status': '200', 'message': 'ç™»å½•æˆåŠŸ'}
+2018-09-05 23:08:14,071 TestRequest.py[line: 32] INFO: testlogin1-1
+2018-09-05 23:08:14,072 TestRequest.py[line: 33] INFO: é€šè¿‡
+2018-09-05 23:08:14,072 TestRequest.py[line: 34] INFO: å®é™…è¿”å›ç»“æœï¼š{'status': '10021', 'message': 'ç”¨æˆ·åæˆ–è€…å¯†ç é”™è¯¯'}

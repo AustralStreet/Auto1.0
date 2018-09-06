@@ -46,7 +46,7 @@ class LogSignleton(object):
 
         if self.logfile_log_on == 1:  # 如果开启文件日志
             rt_file_handler = RotatingFileHandler(
-                self.log_filename, maxBytes=self.max_bytes_each, backupCount=self.backup_count)
+                self.log_filename, maxBytes=self.max_bytes_each, backupCount=self.backup_count,encoding='utf-8')
             rt_file_handler.setFormatter(formatter)
             self.logger.addHandler(rt_file_handler)
             self.logger.setLevel(self.log_level_in_logfile)
