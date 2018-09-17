@@ -8,11 +8,17 @@
 """
 
 import pymysql.cursors
+import configparser
+from testdata.getpath import GetTestConfig
 
-host = "127.0.0.1"
-user = "root"
-password = ""
-db = "polls"
+
+config = configparser.ConfigParser()
+config.read(GetTestConfig("dbconfig.conf"))
+db='TESTDB'
+host = config[db]['host']
+user = config[db]['user']
+password = config[db]['passwd']
+db = config[db]['db']
 
 class MySQLcaozuo():
     def __init__(self):
@@ -22,7 +28,7 @@ class MySQLcaozuo():
             user=user,
             password=password,
             db=db,
-            charset='utf8mb4',
+            charset=config[db]['charset'],
             cursorclass=pymysql.cursors.DictCursor
             )
         except pymysql.err.OperationalError as e:

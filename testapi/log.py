@@ -3,6 +3,8 @@ import logging
 from logging.handlers import RotatingFileHandler
 import threading
 from testdata.getpath import GetTestLogPath
+import configparser
+from testdata.getpath import GetTestConfig
 
 
 class LogSignleton(object):
@@ -11,19 +13,22 @@ class LogSignleton(object):
         pass
 
     def __new__(cls): # 先调用new，再初始化
+        config = configparser.ConfigParser()
+        config.read(GetTestConfig("logconfig.conf"), encoding="utf-8-sig")
+        LOGGING='LOGGING'
         mutex = threading.Lock()
         mutex.acquire() # 上锁，防止多线程下出问题
         if not hasattr(cls, 'instance'):
             cls.instance = super(LogSignleton, cls).__new__(cls)
             cls.instance.log_filename = GetTestLogPath()  # 文件路径
-            cls.instance.max_bytes_each = 51200           # 文件大小
-            cls.instance.backup_count = 10
-            cls.instance.fmt = "|(asctime)s |(filename)s[line: |(lineno)d] |(levelname)s: |(message)s"
-            cls.instance.log_level_in_console = 10
-            cls.instance.log_level_in_logfile = 20
-            cls.instance.logger_name = "test_logger"
-            cls.instance.console_log_on = 1
-            cls.instance.logfile_log_on = 1
+            cls.instance.max_bytes_each = config[LOGGING]['max_bytes_each']         # 文件大小
+            cls.instance.backup_count = config[LOGGING]['backup_count']
+            cls.instance.fmt = config[LOGGING]['fmt']
+            cls.instance.log_level_in_console = config[LOGGING]['log_level_in_console']
+            cls.instance.log_level_in_logfile = config[LOGGING]['log_level_in_logfile']
+            cls.instance.logger_name = config[LOGGING]['logger_name']
+            cls.instance.console_log_on = config[LOGGING]['console_log_on']
+            cls.instance.logfile_log_on = config[LOGGING]['logfile_log_on']
             cls.instance.logger = logging.getLogger(cls.instance.logger_name)
             cls.instance.__config_logger()
         mutex.release()
@@ -53,6 +58,8 @@ class LogSignleton(object):
 
 logsignleton = LogSignleton()
 logger = logsignleton.get_logger()
+
+
 # logger.debug('debug')
 # logger.info('傻逼')
 # logger.warning('warning')

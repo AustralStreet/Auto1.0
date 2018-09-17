@@ -6,13 +6,18 @@ import time
 import TestRequest
 from testcase.testvote import *
 from TestAllRunner import threads
-from initdata import init_data
+#from initdata import init_data
+from SendMail import MyMail
+from log import logger
+from testdata.getpath import GetTestConfig
+
 
 #把GetTestReport方法自己写出来
 from testdata.getpath import GetTestReport
 
-threads()
+
 init_data()
+threads()
 
 
 
@@ -183,6 +188,45 @@ test_detail(worksheet2)
 init(worksheet)
 
 workbook.close()
+
+
+msg = """
+<table width="800" border="0" cellspacing="0" cellpadding="4">
+    <tr>
+        <td bgcolor="#CECFAD" height="20" style="font-size:20px">接口自动化测试报告 <a href="http://www.baidu.com">更多内容>></a></td><br><br>
+    </tr>
+        <td bgcolor="#EFEBDE" height="100" style="font-size:13px">
+            1)测试用例总数：<font color=red> %(yonglizongshu)s</font><br><br>
+            2)通过用例总数：<font color=red> %(tongguoyongli)s</font><br><br>
+            3)失败总数：<font color=red> %(shibaiyongli)s</font><br><br>
+            4)通过率：<font color=red> %(tongguolv)s</font><br><br>
+            5)接口请求地址：<font color=red> %(test_net)s</font><br><br>
+            6)测试时间：<font color=red> %(timenow)s</font><br><br>
+            详情内容请看附件：<font color=red> %(neirong)s</font><br><br>
+        </td>
+    <tr>
+    </tr>
+"""
+
+
+try:
+    logger.info('生成测试报告成功')
+    mymail = MyMail(GetTestConfig('mail.conf'))
+    mymail.connect()
+    mymail.login()
+    mail_content = msg % dict(yonglizongshu=str(len(TestReport)), tongguoyongli=str(hpassnum), shibaiyongli=str(len(TestReport)-hpassnum),
+                              tongguolv=str(round(hpassnum/len(TestReport), 2)*100), test_net=testurl, timenow=timenow, neirong="【"+(now + "report.xlsx" + "】"))
+    mail_title = '【接口自动化测试报告】'
+    attachments = set([ReportPath])
+
+    logger.info("发送测试报告....")
+    mymail.sendmail(mail_title, mail_content, attachments)
+except Exception as e:
+    logger.info("邮件发送失败:"+ str(e))
+    mymail.quit()
+else:
+    mymail.quit()
+    logger.info("邮件发送成功")
 
 
 

@@ -10,11 +10,13 @@
 from testcase.testvote import *
 
 def demo1():
-    post_vote()
-    get_polls()
+    # post_vote()
+    # get_polls()
+    get_joke()
 
 def demo2():
-    post_login()
-    # get_news()
+    # post_login()
+    get_news()
+
 
 
