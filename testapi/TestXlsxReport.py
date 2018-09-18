@@ -16,7 +16,7 @@ from testdata.getpath import GetTestConfig
 from testdata.getpath import GetTestReport
 
 
-init_data()
+#init_data()
 threads()
 
 
