@@ -2,20 +2,20 @@
 ### 项目结构图
 
 Conf/  
-  |-- init.py  
-  |-- conf.ini   
-  |-- config.py    
+&emsp;&emsp;|-- init.py  
+&emsp;&emsp;|-- conf.ini   
+&emsp;&emsp;|-- config.py    
 testcase/  
-  |-- init.py   
-  |-- Test_Vote.py  
+&emsp;&emsp;|-- init.py   
+&emsp;&emsp;|-- Test_Vote.py  
 testdata/   
-  |-- getpath.py   
-  |-- TestData.xls  
+&emsp;&emsp;|-- getpath.py   
+&emsp;&emsp;|-- TestData.xls  
 testreport/   
-  |-- init.py   
-  |-- TestReport.xls  
+&emsp;&emsp;|-- init.py   
+&emsp;&emsp;|-- TestReport.xls  
 logs/   
-  |-- log.txt   
+&emsp;&emsp;|-- log.txt   
 log.py  
 TestAllCass.py  
 TestAllRunner.py  
