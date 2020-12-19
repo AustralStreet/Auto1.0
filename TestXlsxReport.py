@@ -4,12 +4,15 @@
 import xlsxwriter
 import time
 import TestRequest
-from testcase.testvote import *
 from TestAllRunner import threads
 #from initdata import init_data
 from SendMail import MyMail
 from log import logger
 from testdata.getpath import GetTestConfig
+
+#导入测试用例集合
+#from testcase.testvote import *
+from testcase.test_login import *
 
 
 #把GetTestReport方法自己写出来
@@ -83,7 +86,7 @@ def init(worksheet):
 
     worksheet.merge_range('A1:F1', '接口自动化测试报告', define_format_H1)
     worksheet.merge_range('A2:F2', '测试概括', define_format_H2)
-    worksheet.merge_range('A3:A6', '炼数成金', get_format_center(workbook))
+    worksheet.merge_range('A3:A6', '白检商城', get_format_center(workbook))
     # worksheet.insert_image('A1', GetLogoDataPath())
 
     _write_center(worksheet, "B3", '项目名称', workbook)
@@ -91,8 +94,8 @@ def init(worksheet):
     _write_center(worksheet, "B5", '脚本语言', workbook)
     _write_center(worksheet, "B6", '测试地址', workbook)
 
-    data = {"test_name": "炼数成金项目接口", "test_version": "v1.0.0",
-            "test_pl": "Python3", "test_net": testurl}
+    data = {"test_name": "百检商城项目接口", "test_version": "v1.0.0",
+            "test_pl": "Python3.8.5", "test_net": testurl}
     _write_center(worksheet, "C3", data['test_name'], workbook)
     _write_center(worksheet, "C4", data['test_version'], workbook)
     _write_center(worksheet, "C5", data['test_pl'], workbook)

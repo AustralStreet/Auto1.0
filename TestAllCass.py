@@ -6,17 +6,12 @@
 @file: TestAllCass.py
 @time: 2018/8/21 23:23
 """
-
+#导入测试用例集合
 from testcase.testvote import *
+from testcase.test_login import *
 
-def demo1():
-    # post_vote()
-    # get_polls()
-    get_joke()
-
-def demo2():
-    # post_login()
-    get_news()
+def test_login():
+    post_token()
 
 
 

@@ -25,7 +25,7 @@ class MyMail:
         config = configparser.ConfigParser()
         config.read(mail_config_file)
 
-        self.smtp = smtplib.SMTP_SSL()
+        self.smtp = smtplib.SMTP_SSL("smtp.163.com",465)
         self.login_user = config.get("SMTP", 'login_user')
         self.login_pwd = config.get("SMTP", 'login_pwd')
         self.from_addr = config.get("SMTP", 'from_addr')
@@ -93,15 +93,15 @@ class MyMail:
     def quit(self):
         self.smtp.quit()
 
-if __name__ == '__main__':
-    mymail = MyMail(GetTestConfig('mail.conf'))
-    mymail.connect()
-    mymail.login()
-    mail_content = 'hi,测试'
-    mail_title = '[测试]报告'
-    attachments = set([GetTestConfig('mail.conf')])
-    mymail.sendmail(mail_title, mail_content, attachments)
-    mymail.quit()
+# if __name__ == '__main__':
+#     mymail = MyMail(GetTestConfig('mail.conf'))
+#     mymail.connect()
+#     mymail.login()
+#     mail_content = 'hi,测试'
+#     mail_title = '[测试]报告'
+#     attachments = set([GetTestConfig('mail.conf')])
+#     mymail.sendmail(mail_title, mail_content, attachments)
+#     mymail.quit()
 
 
 
